@@ -59,7 +59,7 @@ spec:
   ingressClassName: nginx # k8s 1.19以降で必要
   rules:
     # app1へのルーティングルール
-    - host: user-auth.aninaka-api.com
+    - host: user-auth.aninaka-api.net
       http:
         paths:
           - backend:
@@ -70,7 +70,7 @@ spec:
             path: /
             pathType: Prefix
     # app2へのルーティングルール
-    - host: anime.aninaka-api.com
+    - host: anime.aninaka-api.net
       http:
         paths:
           - backend:
