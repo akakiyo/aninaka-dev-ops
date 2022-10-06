@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    # 以下を変更すること
+    email: kiyo.personal.dev@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-prod-account-key
+    solvers:
+      - dns01:
+          cloudDNS:
+            # 以下を利用するGCPのプロジェクト名に変えること
+            project: aninaka-363507
+            serviceAccountSecretRef:
+              name: clouddns-dns01-solver-svc-acct
+              key: service-account.json
